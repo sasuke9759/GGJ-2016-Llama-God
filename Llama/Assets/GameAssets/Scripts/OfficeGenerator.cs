@@ -34,7 +34,14 @@ public class OfficeGenerator : MonoBehaviour
         hallways = new List<GameObject>();
         offices = new List<GameObject>();
         GenerateFloor();
-        
+
+        InvokeRepeating("ShuffleWorker", .2f, .2f);
+    }
+
+    void ShuffleWorker()
+    {
+        AgentController agent = offices[Random.Range(0, offices.Count)].transform.parent.FindChild("Agent").GetComponent<AgentController>();
+        agent.target = offices[Random.Range(0, offices.Count)].transform;
     }
 
     void GenerateFloor()

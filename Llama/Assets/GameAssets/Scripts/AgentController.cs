@@ -4,7 +4,7 @@ using System.Collections;
 public class AgentController : MonoBehaviour {
 
     [SerializeField]
-    Transform target;
+    public Transform target;
     [SerializeField]
     NavMeshAgent agent;
 	
