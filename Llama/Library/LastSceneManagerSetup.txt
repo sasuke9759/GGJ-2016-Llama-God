@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/GameAssets/Scenes/office.unity
+  isLoaded: 1
+  isActive: 1
