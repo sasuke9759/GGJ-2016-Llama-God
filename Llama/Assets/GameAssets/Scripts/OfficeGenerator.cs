@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class OfficeGenerator : MonoBehaviour {
+public class OfficeGenerator : MonoBehaviour
+{
     [SerializeField]
     int level, numberOfHallways, numberOfOffices, minHallwayLength, maxHallwayLength;
     [SerializeField]
@@ -15,19 +16,23 @@ public class OfficeGenerator : MonoBehaviour {
     List<GameObject> hallwayEndNodes;
     List<GameObject> hallways, offices;
 
+    bool shufflingRooms = false, madeWalls = false;
+
 
     // right up left down
-    public static Vector3[] directions = { new Vector3(.8f, 0, 0), new Vector3(0, 0,.8f), new Vector3(-.8f,0, 0), new Vector3(0,0, -.8f)};
+    public static Vector3[] directions = { new Vector3(.8f, 0, 0), new Vector3(0, 0, .8f), new Vector3(-.8f, 0, 0), new Vector3(0, 0, -.8f) };
     int previousDirection = -1;
 
     Random random = new Random();
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         hallwayEndNodes = new List<GameObject>();
         hallways = new List<GameObject>();
+        offices = new List<GameObject>();
         GenerateFloor();
-	}
+    }
 
     void GenerateFloor()
     {
@@ -40,16 +45,33 @@ public class OfficeGenerator : MonoBehaviour {
             GenerateHallways(hallwayEndNodes[Random.Range(0, hallwayEndNodes.Count)]);
             hallwaysLeft--;
         }
-        
+
         while (officesLeft > 0)
         {
             GenerateOffices();
             officesLeft--;
         }
 
-        foreach(GameObject hallway in hallways)
+        shufflingRooms = true;
+        //
+    }
+
+    void LateUpdate()
+    {
+        if (shufflingRooms)
         {
-            hallway.GetComponent<HallwayController>().GenerateWalls();
+            foreach (GameObject office in offices)
+            {
+                if (!office.GetComponent<OfficeController>().happyWithCurrentSpot)
+                {
+                    return;
+                }
+            }
+            foreach (GameObject hallway in hallways)
+            {
+                hallway.GetComponent<HallwayController>().GenerateWalls();
+            }
+            madeWalls = true;
         }
     }
 
@@ -61,7 +83,7 @@ public class OfficeGenerator : MonoBehaviour {
         List<int> directionChoices = new List<int>();
         for (int i = 0; i < 4; i++)
         {
-            if ((i+2) % 4 != previousDirection)
+            if ((i + 2) % 4 != previousDirection)
             {
                 directionChoices.Add(i);
             }
@@ -78,12 +100,13 @@ public class OfficeGenerator : MonoBehaviour {
                 hallways.Add(currentHallway);
             }
             hallwayEndNodes.Add(currentHallway);
-        }        
+        }
     }
 
     private void GenerateOffices()
     {
         OfficeController office = Instantiate(officePrefab).GetComponentInChildren<OfficeController>();
+        offices.Add(office.gameObject);
         office.hallways = hallways;
         office.PlaceRandomly();
     }

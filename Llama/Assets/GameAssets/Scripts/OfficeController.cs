@@ -9,7 +9,14 @@ public class OfficeController : MonoBehaviour
 
     float[] rotationAmounts = { 0, 90, 180, 270 };
 
+    public bool happyWithCurrentSpot = true;
+
     // Use this for initialization
+    void FixedUpdate()
+    {
+        happyWithCurrentSpot = true;
+    }
+
     void OnTriggerEnter(Collider collision)
     {
         //Debug.Log("Collide");
@@ -18,14 +25,15 @@ public class OfficeController : MonoBehaviour
             if (GetComponent<Collider>().bounds.Contains(collision.gameObject.GetComponent<Collider>().bounds.center))
                 PlaceRandomly();
         }
-        //else if (collision.gameObject.tag == "room" && !collision.gameObject.Equals(gameObject))
-        //{
-        //    PlaceRandomly();
-        //}
+        else if (collision.gameObject.tag == "room" && !collision.gameObject.Equals(gameObject))
+        {
+            PlaceRandomly();
+        }
     }
 
     public void PlaceRandomly()
     {
+        happyWithCurrentSpot = false;
         GameObject hallway = hallways[Random.Range(0, hallways.Count)];
 
         int randomVal = Random.Range(0, 4);
