@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GUI\GUI Button Script.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AgentController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\HallwayController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\OfficeController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\OfficeGenerator.cs" />
