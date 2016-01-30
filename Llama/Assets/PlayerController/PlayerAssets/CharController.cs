@@ -16,6 +16,8 @@ public class CharController : MonoBehaviour {
 
 	public float walkingspeed;
 
+	public TriggerChooser triggerscript;
+
 	// Use this for initialization
 	void Start () {
 
@@ -98,5 +100,12 @@ public class CharController : MonoBehaviour {
 		{
 			player.GetComponent<Rigidbody2D>().AddForce(Vector2.down * walkingspeed);
 		}
+
+		if (Input.GetButtonDown("Jump"))
+		{
+			triggerscript.ActivateInteractive();
+		}
+
+
 	}
 }
