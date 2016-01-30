@@ -7,14 +7,15 @@ public class OfficeGenerator : MonoBehaviour
     [SerializeField]
     int level, numberOfHallways, numberOfOffices, minHallwayLength, maxHallwayLength;
     [SerializeField]
-    GameObject hallwayPrefab, officePrefab;
+    GameObject hallwayPrefab, officePrefab, elevatorPrefab;
     [SerializeField]
-    GameObject elevator;
+    GameObject startHallway;
     [SerializeField]
     GameObject[] requiredRooms;
 
     List<GameObject> hallwayEndNodes;
     List<GameObject> hallways, offices;
+    GameObject elevator;
 
     bool shufflingRooms = false, madeWalls = false;
     int importance = 0;
@@ -33,7 +34,7 @@ public class OfficeGenerator : MonoBehaviour
         hallways = new List<GameObject>();
         offices = new List<GameObject>();
         GenerateFloor();
-
+        
     }
 
     void GenerateFloor()
@@ -97,10 +98,12 @@ public class OfficeGenerator : MonoBehaviour
         int totalChoices = directionChoices.Count;
         for (int i = 0; i < Random.Range(1, totalChoices); i++)
         {
+            if (startHallway == null) startHallway = gameObject;
             GameObject currentHallway = startHallway;
             int direction = Random.Range(0, directionChoices.Count);
             for (int j = 0; j < hallwayLength; j++)
             {
+                
                 currentHallway = (GameObject)Instantiate(hallwayPrefab, currentHallway.transform.position + directions[direction], Quaternion.Euler(new Vector3(90, 0, 0)));
                 hallways.Add(currentHallway);
             }
@@ -115,6 +118,11 @@ public class OfficeGenerator : MonoBehaviour
         offices.Add(office.gameObject);
         office.hallways = hallways;
         office.PlaceRandomly();
+    }
+
+    private void GenerateElevator()
+    {
+        GameObject elevator = Instantiate(elevatorPrefab);
     }
 
     private void RemoveDuplicateHallways()
