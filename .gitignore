@@ -1,3 +1,9 @@
+*.asset
+*.dll
+*.dll.mdb
+*.stamp
+*.log
+
 #################
 ## Eclipse
 #################
