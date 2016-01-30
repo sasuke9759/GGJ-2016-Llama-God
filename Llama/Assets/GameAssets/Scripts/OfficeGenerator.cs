@@ -17,6 +17,7 @@ public class OfficeGenerator : MonoBehaviour
     List<GameObject> hallways, offices;
 
     bool shufflingRooms = false, madeWalls = false;
+    int importance = 0;
 
 
     // right up left down
@@ -49,6 +50,7 @@ public class OfficeGenerator : MonoBehaviour
         while (officesLeft > 0)
         {
             GenerateOffices();
+            importance++;
             officesLeft--;
         }
 
@@ -106,6 +108,7 @@ public class OfficeGenerator : MonoBehaviour
     private void GenerateOffices()
     {
         OfficeController office = Instantiate(officePrefab).GetComponentInChildren<OfficeController>();
+        office.placementOrder = importance;
         offices.Add(office.gameObject);
         office.hallways = hallways;
         office.PlaceRandomly();

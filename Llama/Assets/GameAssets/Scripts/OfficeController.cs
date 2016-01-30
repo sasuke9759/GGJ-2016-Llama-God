@@ -10,6 +10,7 @@ public class OfficeController : MonoBehaviour
     float[] rotationAmounts = { 0, 90, 180, 270 };
 
     public bool happyWithCurrentSpot = true;
+    public int placementOrder;
 
     // Use this for initialization
     void FixedUpdate()
@@ -27,7 +28,10 @@ public class OfficeController : MonoBehaviour
         }
         else if (collision.gameObject.tag == "room" && !collision.gameObject.Equals(gameObject))
         {
-            PlaceRandomly();
+            if (collision.gameObject.GetComponent<OfficeController>().placementOrder < placementOrder)
+            {
+                PlaceRandomly();
+            }
         }
     }
 
