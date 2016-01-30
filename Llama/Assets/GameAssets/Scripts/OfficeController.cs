@@ -28,10 +28,14 @@ public class OfficeController : MonoBehaviour
         }
         else if (collision.gameObject.tag == "room" && !collision.gameObject.Equals(gameObject))
         {
-            if (collision.gameObject.GetComponent<OfficeController>().placementOrder < placementOrder)
+            try
             {
-                PlaceRandomly();
+                if (collision.gameObject.GetComponent<OfficeController>().placementOrder < placementOrder)
+                {
+                    PlaceRandomly();
+                }
             }
+            catch { }
         }
     }
 

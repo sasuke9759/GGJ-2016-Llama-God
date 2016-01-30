@@ -4,6 +4,7 @@ using System.Collections;
 public class HallwayController : MonoBehaviour {
     [SerializeField]
     GameObject[] walls;
+    bool kill = false;
 
 	// Use this for initialization
 	public void GenerateWalls () {
@@ -18,6 +19,17 @@ public class HallwayController : MonoBehaviour {
                 }
             }
         }
-	
 	}
+
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "hallway")
+        {
+            if (!collision.gameObject.GetComponent<HallwayController>().kill)
+            {
+                kill = true;
+                Destroy(gameObject);
+            }
+        }
+    }
 }
