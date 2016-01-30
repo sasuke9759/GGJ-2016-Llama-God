@@ -33,6 +33,7 @@ public class OfficeGenerator : MonoBehaviour
         hallways = new List<GameObject>();
         offices = new List<GameObject>();
         GenerateFloor();
+
     }
 
     void GenerateFloor()
@@ -47,6 +48,8 @@ public class OfficeGenerator : MonoBehaviour
             hallwaysLeft--;
         }
 
+        RemoveDuplicateHallways();
+
         while (officesLeft > 0)
         {
             GenerateOffices();
@@ -55,7 +58,7 @@ public class OfficeGenerator : MonoBehaviour
         }
 
         shufflingRooms = true;
-        //
+
     }
 
     void LateUpdate()
@@ -112,5 +115,30 @@ public class OfficeGenerator : MonoBehaviour
         offices.Add(office.gameObject);
         office.hallways = hallways;
         office.PlaceRandomly();
+    }
+
+    private void RemoveDuplicateHallways()
+    {
+        for (int i = hallways.Count - 1; i >= 0; i--)
+        {
+            for (int j = hallways.Count - 1; j >= 0; j--)
+            {
+                if (i != j)
+                {
+                    if (hallways[i].transform.position == hallways[j].transform.position && hallways[j].activeSelf)
+                    {
+                        hallways[i].SetActive(false);
+                    }
+                }
+            }
+        }
+        for (int i = hallways.Count - 1; i >= 0; i--)
+        {
+            if (!hallways[i].activeSelf)
+            {
+                Destroy(hallways[i]);
+                hallways.Remove(hallways[i]);
+            }
+        }
     }
 }
