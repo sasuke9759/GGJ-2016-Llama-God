@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class OfficeController : MonoBehaviour {
+public class OfficeController : MonoBehaviour
+{
 
     [HideInInspector]
     public List<GameObject> hallways;
@@ -9,14 +10,19 @@ public class OfficeController : MonoBehaviour {
     float[] rotationAmounts = { 0, 90, 180, 270 };
 
     // Use this for initialization
-    void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerStay(Collider collision)
     {
-	    if (collision.gameObject.tag == "hallway" || collision.gameObject.tag == "room")
+        //Debug.Log("Collide");
+        if (collision.gameObject.tag == "hallway")
         {
-            //if (GetComponent<Collider2D>().bounds.Contains(collision.gameObject.GetComponent<Collider2D>().bounds.center))
+            if (GetComponent<Collider>().bounds.Contains(collision.gameObject.GetComponent<Collider>().bounds.center))
                 PlaceRandomly();
         }
-	}
+        else if (collision.gameObject.tag == "room" && !collision.gameObject.Equals(gameObject))
+        {
+            PlaceRandomly();
+        }
+    }
 
     public void PlaceRandomly()
     {
