@@ -10,7 +10,7 @@ public class OfficeController : MonoBehaviour
     float[] rotationAmounts = { 0, 90, 180, 270 };
 
     // Use this for initialization
-    void OnTriggerStay(Collider collision)
+    void OnTriggerEnter(Collider collision)
     {
         //Debug.Log("Collide");
         if (collision.gameObject.tag == "hallway")
@@ -18,10 +18,10 @@ public class OfficeController : MonoBehaviour
             if (GetComponent<Collider>().bounds.Contains(collision.gameObject.GetComponent<Collider>().bounds.center))
                 PlaceRandomly();
         }
-        else if (collision.gameObject.tag == "room" && !collision.gameObject.Equals(gameObject))
-        {
-            PlaceRandomly();
-        }
+        //else if (collision.gameObject.tag == "room" && !collision.gameObject.Equals(gameObject))
+        //{
+        //    PlaceRandomly();
+        //}
     }
 
     public void PlaceRandomly()
@@ -33,7 +33,7 @@ public class OfficeController : MonoBehaviour
         float rotation = rotationAmounts[randomVal];
         transform.parent.position = hallway.transform.position + direction;
         transform.parent.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
-        transform.parent.Rotate(new Vector3(0, 0, 90));
+        transform.parent.Rotate(new Vector3(0, 0, rotation));
         transform.parent.parent = hallway.transform;
     }
 }

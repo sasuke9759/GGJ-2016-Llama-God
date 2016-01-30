@@ -46,6 +46,11 @@ public class OfficeGenerator : MonoBehaviour {
             GenerateOffices();
             officesLeft--;
         }
+
+        foreach(GameObject hallway in hallways)
+        {
+            hallway.GetComponent<HallwayController>().GenerateWalls();
+        }
     }
 
     private void GenerateHallways(GameObject startHallway)
