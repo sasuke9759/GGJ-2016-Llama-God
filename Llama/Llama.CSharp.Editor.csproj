@@ -111,10 +111,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Llama.CSharp.Plugins.csproj">
-      <Project>{FF116239-0627-1437-7444-566B327CC0D9}</Project>
-      <Name>Llama.CSharp.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="Llama.CSharp.csproj">
       <Project>{61957446-5F10-C057-11B0-684C06D17E76}</Project>
       <Name>Llama.CSharp</Name>
@@ -122,12 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
-    <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
-    <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
-    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

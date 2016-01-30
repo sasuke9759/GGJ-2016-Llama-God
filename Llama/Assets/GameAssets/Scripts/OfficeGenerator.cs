@@ -17,7 +17,7 @@ public class OfficeGenerator : MonoBehaviour {
 
 
     // right up left down
-    public static Vector3[] directions = { new Vector3(.2f, 0, 0), new Vector3(0, 0,.2f), new Vector3(-.2f,0, 0), new Vector3(0,0, -.2f)};
+    public static Vector3[] directions = { new Vector3(.8f, 0, 0), new Vector3(0, 0,.8f), new Vector3(-.8f,0, 0), new Vector3(0,0, -.8f)};
     int previousDirection = -1;
 
     Random random = new Random();
