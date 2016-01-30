@@ -86,22 +86,22 @@ public class CharController : MonoBehaviour {
 
 		if (charAnim.GetCurrentAnimatorStateInfo(0).IsName("RightAnim"))
 		{
-			player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * walkingspeed);
+			player.GetComponent<Rigidbody>().AddForce(Vector3.right * walkingspeed);
 		}
 		if (charAnim.GetCurrentAnimatorStateInfo(0).IsName("LeftAnim"))
 		{
-			player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * walkingspeed);
+			player.GetComponent<Rigidbody>().AddForce(Vector3.left * walkingspeed);
 		}
 		if (charAnim.GetCurrentAnimatorStateInfo(0).IsName("UpAnim"))
 		{
-			player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * walkingspeed);
+			player.GetComponent<Rigidbody>().AddForce(Vector3.forward * walkingspeed);
 		}
 		if (charAnim.GetCurrentAnimatorStateInfo(0).IsName("DownAnim"))
 		{
-			player.GetComponent<Rigidbody2D>().AddForce(Vector2.down * walkingspeed);
+			player.GetComponent<Rigidbody>().AddForce(Vector3.back * walkingspeed);
 		}
 
-		if (Input.GetButtonDown("Jump"))
+		if (Input.GetButtonDown("Interact"))
 		{
 			triggerscript.ActivateInteractive();
 		}

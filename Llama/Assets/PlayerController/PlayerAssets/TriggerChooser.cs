@@ -23,7 +23,7 @@ public class TriggerChooser : MonoBehaviour {
 		for (int i = 0; i < objectList.Count; i++)
 		{
 			
-			if(Vector2.Distance(transform.position, objectList[i].transform.position) < newdist)
+			if(Vector3.Distance(transform.position, objectList[i].transform.position) < newdist)
 			{
 
 				if (selectedObject != null)
@@ -36,7 +36,7 @@ public class TriggerChooser : MonoBehaviour {
 			if (objectList[i].gameObject == selectedObject)
 			{
 
-				newdist = Vector2.Distance(transform.position, objectList[i].transform.position);
+				newdist = Vector3.Distance(transform.position, objectList[i].transform.position);
 
 			}
 		}
@@ -64,7 +64,7 @@ public class TriggerChooser : MonoBehaviour {
 	}
 
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerEnter(Collider other)
 	{
 
 		if (other.gameObject.tag == "Interactive")
@@ -74,7 +74,7 @@ public class TriggerChooser : MonoBehaviour {
 
 	}
 
-	void OnTriggerExit2D(Collider2D other)
+	void OnTriggerExit(Collider other)
 	{
 		
 		if (other.gameObject.tag == "Interactive")
