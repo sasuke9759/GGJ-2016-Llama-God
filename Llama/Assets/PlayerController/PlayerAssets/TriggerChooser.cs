@@ -23,10 +23,11 @@ public class TriggerChooser : MonoBehaviour {
 
 		for (int i = 0; i < objectList.Count; i++)
 		{
-			if (objectList[i] == null)
+			if (objectList[i] == null || !objectList[i].activeInHierarchy)
             {
                 objectList.Remove(objectList[i]);
             }
+
 			if(Vector3.Distance(transform.position, objectList[i].transform.position) < newdist)
 			{
 
@@ -37,7 +38,7 @@ public class TriggerChooser : MonoBehaviour {
 
 				selectedObject = objectList[i];
 			}
-			if (objectList[i].gameObject == selectedObject)
+			if (objectList[i] == selectedObject)
 			{
 
 				newdist = Vector3.Distance(transform.position, objectList[i].transform.position);
@@ -47,6 +48,7 @@ public class TriggerChooser : MonoBehaviour {
 		if (objectList.Count == 0)
 		{
 			selectedObject = null;
+            newdist = 1000;
 		}
 
 		if (selectedObject != null)

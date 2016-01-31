@@ -12,10 +12,13 @@ public class EMail : MonoBehaviour {
     public string input;
     InputField emailBody;
     public GameObject emailWindow;
-    
+
+    TaskManager taskManager;
+
     void Start()
     {
         Player = GameObject.Find("Player");
+        taskManager = GameObject.Find("Tasks").GetComponent<TaskManager>();
     }
 
     public void SubmitEmail()
@@ -30,6 +33,7 @@ public class EMail : MonoBehaviour {
         else {
             Debug.Log(emailBody.text);
             Debug.Log("OK");
+            taskManager.CompleteTask("Email");
         }
 
         Player.GetComponent<CharController>().enabled = true;

@@ -10,12 +10,14 @@ public class QuickTimeEvents : MonoBehaviour
 	public float seconds = 0;
 	public float timeEventDuration = 0;
 	public bool coolDownNow = false;
+    TaskManager taskManager;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
         Player = GameObject.Find("Player");
-		progress.fillAmount = 0;
+        taskManager = GameObject.Find("Tasks").GetComponent<TaskManager>();
+        progress.fillAmount = 0;
 		pressButtonNow.gameObject.SetActive (false);
 		StartCoroutine ("StartQuickTime");
 	}
@@ -31,7 +33,7 @@ public class QuickTimeEvents : MonoBehaviour
 
         Player.GetComponent<CharController>().enabled = true;
         Player.transform.FindChild("Trigger").gameObject.SetActive(true);
-
+        taskManager.CompleteTask("Meeting");
         gameObject.SetActive (false);
 	}
 

@@ -12,6 +12,7 @@ public class Fax : MonoBehaviour
     public GameObject faxWindow;
 
     GameObject Player;
+    TaskManager taskManager;
 
     public void SendFax()
     {
@@ -21,6 +22,7 @@ public class Fax : MonoBehaviour
             //Strike to Character
             Debug.Log(faxNumber.text);
             Debug.Log("OK");
+            taskManager.CompleteTask("Fax");
         }
         else {
             Debug.Log(faxNumber.text);
@@ -30,6 +32,7 @@ public class Fax : MonoBehaviour
         Player.GetComponent<CharController>().enabled = true;
         Player.transform.FindChild("Trigger").gameObject.SetActive(true);
         faxWindow.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void CancelFax()
@@ -42,8 +45,9 @@ public class Fax : MonoBehaviour
     void Start() 
 	{
         Player = GameObject.Find("Player");
-		//audioSource.clip = audioClip;
-	}
+        taskManager = GameObject.Find("Tasks").GetComponent<TaskManager>();
+        //audioSource.clip = audioClip;
+    }
 
 	IEnumerator PlaySound()
 	{

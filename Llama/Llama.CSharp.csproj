@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DeadBodyController.cs" />
     <Compile Include="Assets\GUI\GUI Button Script.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AgentController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AgentFindDeadBodies.cs" />
@@ -74,11 +75,13 @@
     <Compile Include="Assets\GameAssets\Scripts\RandomRotation.cs" />
     <Compile Include="Assets\GameAssets\Scripts\SpritePicker.cs" />
     <Compile Include="Assets\House\GoToBasement.cs" />
+    <Compile Include="Assets\KillController.cs" />
     <Compile Include="Assets\PlayerController\InteractiveObjects.cs" />
     <Compile Include="Assets\PlayerController\PlayerAssets\CharController.cs" />
     <Compile Include="Assets\PlayerController\PlayerAssets\TriggerChooser.cs" />
     <Compile Include="Assets\PlayerController\murderAnim.cs" />
     <Compile Include="Assets\Prefabs\UserInterface\Scripts\TaskManager.cs" />
+    <Compile Include="Assets\Sacrifice.cs" />
     <Compile Include="Assets\Tasks\EMail.cs" />
     <Compile Include="Assets\Tasks\Fax.cs" />
     <Compile Include="Assets\Tasks\MeetingTask\QuickTimeEvents.cs" />

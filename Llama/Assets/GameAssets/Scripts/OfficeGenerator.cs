@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 public class OfficeGenerator : MonoBehaviour
 {
-    [SerializeField]
-    int level, numberOfHallways, numberOfOffices, minHallwayLength, maxHallwayLength;
+    public int level, numberOfHallways, numberOfOffices, minHallwayLength, maxHallwayLength;
     [SerializeField]
     GameObject hallwayPrefab, officePrefab, elevatorPrefab;
     [SerializeField]
@@ -16,6 +15,7 @@ public class OfficeGenerator : MonoBehaviour
     List<GameObject> hallwayItems;
 
     List<GameObject> hallwayEndNodes;
+
     List<GameObject> hallways, offices, decals;
     GameObject elevator;
 

@@ -9,6 +9,8 @@ public class UnJam : MonoBehaviour
 	float amount = 0.01f;
     GameObject Player;
 
+    TaskManager taskManager;
+
     public float negativeProgress, positiveProgress;
 
 	// Use this for initialization
@@ -16,7 +18,8 @@ public class UnJam : MonoBehaviour
 	{
 		image.fillAmount = 0.0f;
         Player = GameObject.Find("Player");
-	}
+        taskManager = GameObject.Find("Tasks").GetComponent<TaskManager>();
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -33,8 +36,9 @@ public class UnJam : MonoBehaviour
                 //Stop and destroy this object
                 Player.GetComponent<CharController>().enabled = true;
                 Player.transform.FindChild("Trigger").gameObject.SetActive(true);
-                this.gameObject.SetActive(!isDown);
-			}
+                this.gameObject.SetActive(false);
+                taskManager.CompleteTask("Unjam");
+            }
 		} 
 		else 
 		{
