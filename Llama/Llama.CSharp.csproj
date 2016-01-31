@@ -75,7 +75,10 @@
     <Compile Include="Assets\PlayerController\PlayerAssets\TriggerChooser.cs" />
     <Compile Include="Assets\PlayerController\murderAnim.cs" />
     <Compile Include="Assets\Prefabs\UserInterface\Scripts\TaskManager.cs" />
-    <Compile Include="Assets\SpritePicker.cs" />
+    <Compile Include="Assets\Tasks\MeetingTask\QuickTimeEvents.cs" />
+    <Compile Include="Assets\Tasks\Printer\Copy.cs" />
+    <Compile Include="Assets\Tasks\Printer\Fax.cs" />
+    <Compile Include="Assets\Tasks\Printer\UnJam.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
