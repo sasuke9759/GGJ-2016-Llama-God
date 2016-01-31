@@ -7,6 +7,10 @@ public class OfficeController : MonoBehaviour
     [HideInInspector]
     public List<GameObject> hallways;
 
+    [SerializeField]
+    GameObject agentPrefab;
+    public GameObject agent = null;
+
     float[] rotationAmounts = { 0, 90, 180, 270 };
 
     public bool happyWithCurrentSpot = true;
@@ -51,5 +55,16 @@ public class OfficeController : MonoBehaviour
         transform.parent.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
         transform.parent.Rotate(new Vector3(0, 0, rotation));
         transform.parent.parent = hallway.transform;
+    }
+
+    public void GenerateAgent()
+    {
+        if (agentPrefab != null && agent == null)
+        {
+            agent = (GameObject)Instantiate(agentPrefab, transform.position, Quaternion.identity);
+
+            agent.transform.SetParent(transform.parent);
+            //agent.transform.localScale = Vector3.one;
+        }
     }
 }

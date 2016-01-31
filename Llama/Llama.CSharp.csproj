@@ -68,12 +68,16 @@
   <ItemGroup>
     <Compile Include="Assets\GUI\GUI Button Script.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AgentController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\FiniteStateMachine.cs" />
     <Compile Include="Assets\GameAssets\Scripts\HallwayController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\JobManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\OfficeController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\OfficeGenerator.cs" />
     <Compile Include="Assets\PlayerController\InteractiveObjects.cs" />
     <Compile Include="Assets\PlayerController\PlayerAssets\CharController.cs" />
     <Compile Include="Assets\PlayerController\PlayerAssets\TriggerChooser.cs" />
+    <Compile Include="Assets\PlayerController\murderAnim.cs" />
+    <Compile Include="Assets\Prefabs\UserInterface\Scripts\TaskManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -35,6 +35,7 @@ public class OfficeGenerator : MonoBehaviour
         hallwayEndNodes = new List<GameObject>();
         hallways = new List<GameObject>();
         offices = new List<GameObject>();
+        decals = new List<GameObject>();
         GenerateFloor();
 
         InvokeRepeating("ShuffleWorker", .2f, .2f);
@@ -44,7 +45,7 @@ public class OfficeGenerator : MonoBehaviour
     {
         try
         {
-            AgentController agent = offices[Random.Range(0, offices.Count)].transform.parent.FindChild("Agent").GetComponent<AgentController>();
+            AgentController agent = offices[Random.Range(0, offices.Count)].GetComponent<OfficeController>().agent.GetComponent<AgentController>();
             if (agent != null)
             {
                 agent.target = offices[Random.Range(0, offices.Count)].transform;
@@ -121,7 +122,11 @@ public class OfficeGenerator : MonoBehaviour
             {
                 hallway.GetComponent<HallwayController>().GenerateWalls();
             }
-            madeWalls = true;
+            foreach (GameObject office in offices)
+            {
+                office.GetComponent<OfficeController>().GenerateAgent();
+            }
+                madeWalls = true;
         }
     }
 
