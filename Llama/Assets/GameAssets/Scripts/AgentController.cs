@@ -40,9 +40,16 @@ public class AgentController : MonoBehaviour {
 		if (player.GetComponent<murderAnim>().murdering == false && murdered == true)
 		{
 
-			Instantiate(deadBody, this.transform.position, Quaternion.identity);
+			print ("IT SHOULD BE TURNING INTO A DEAD BODY NOW");
 
-			Destroy(this);
+			Instantiate(deadBody, this.transform.position, this.transform.rotation);
+
+			GetComponent<Collider>().enabled = false;
+			transform.GetChild(0).GetComponent<Collider>().enabled = false;
+
+			this.enabled = false;
+
+
 
 		}
 	}

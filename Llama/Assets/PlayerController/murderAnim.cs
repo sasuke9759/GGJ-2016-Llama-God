@@ -7,6 +7,8 @@ public class murderAnim : MonoBehaviour {
 
 	public Animator charAnim;
 
+	public ParticleSystem blood;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -27,5 +29,16 @@ public class murderAnim : MonoBehaviour {
 	{
 		murdering = true;
 		charAnim.SetBool("murdering", murdering);
+	}
+
+	public void spewBlood()
+	{
+		blood.Stop();
+		blood.Play();
+	}
+
+	public void stopBlood()
+	{
+		blood.Stop ();
 	}
 }

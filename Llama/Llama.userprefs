@@ -1,11 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GameAssets\Scripts\AgentController.cs">
     <Files>
-      <File FileName="Assets\GameAssets\Scripts\AgentController.cs" Line="21" Column="125" />
+      <File FileName="Assets\PlayerController\murderAnim.cs" Line="42" Column="13" />
+      <File FileName="Assets\GameAssets\Scripts\AgentController.cs" Line="48" Column="24" />
       <File FileName="Assets\PlayerController\InteractiveObjects.cs" Line="1" Column="1" />
       <File FileName="Assets\PlayerController\PlayerAssets\TriggerChooser.cs" Line="1" Column="1" />
       <File FileName="Assets\PlayerController\PlayerAssets\CharController.cs" Line="1" Column="1" />
+      <File FileName="Assets\GameAssets\Scripts\SpritePicker.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -47,24 +47,24 @@
   <ItemGroup>
      <Compile Include="Assets\GUI\GUI Button Script.cs" />
      <Compile Include="Assets\GameAssets\Scripts\AgentController.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\FiniteStateMachine.cs" />
      <Compile Include="Assets\GameAssets\Scripts\HallwayController.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\JobManager.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\LockRotation.cs" />
      <Compile Include="Assets\GameAssets\Scripts\OfficeController.cs" />
      <Compile Include="Assets\GameAssets\Scripts\OfficeGenerator.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\RandomRotation.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\SpritePicker.cs" />
      <Compile Include="Assets\PlayerController\InteractiveObjects.cs" />
      <Compile Include="Assets\PlayerController\PlayerAssets\CharController.cs" />
      <Compile Include="Assets\PlayerController\PlayerAssets\TriggerChooser.cs" />
      <Compile Include="Assets\PlayerController\murderAnim.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
+     <Compile Include="Assets\Prefabs\UserInterface\Scripts\TaskManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
