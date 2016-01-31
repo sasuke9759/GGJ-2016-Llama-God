@@ -9,6 +9,9 @@ public class murderAnim : MonoBehaviour {
 
 	public ParticleSystem blood;
 
+	public AudioSource source;
+	public AudioClip knife;
+
 	public void setNotMurdering()
 	{
 		murdering = false;
@@ -25,6 +28,8 @@ public class murderAnim : MonoBehaviour {
 	{
 		blood.Stop();
 		blood.Play();
+		source.clip = knife;
+		source.Play ();
 	}
 
 	public void stopBlood()
