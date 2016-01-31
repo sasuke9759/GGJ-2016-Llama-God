@@ -11,10 +11,12 @@ public class OfficeGenerator : MonoBehaviour
     [SerializeField]
     GameObject startHallway;
     [SerializeField]
-    GameObject[] requiredRooms;
+    List<GameObject> requiredRooms;
+    [SerializeField]
+    List<GameObject> hallwayItems;
 
     List<GameObject> hallwayEndNodes;
-    List<GameObject> hallways, offices;
+    List<GameObject> hallways, offices, decals;
     GameObject elevator;
 
     bool shufflingRooms = false, madeWalls = false;
@@ -40,8 +42,15 @@ public class OfficeGenerator : MonoBehaviour
 
     void ShuffleWorker()
     {
-        AgentController agent = offices[Random.Range(0, offices.Count)].transform.parent.FindChild("Agent").GetComponent<AgentController>();
-        agent.target = offices[Random.Range(0, offices.Count)].transform;
+        try
+        {
+            AgentController agent = offices[Random.Range(0, offices.Count)].transform.parent.FindChild("Agent").GetComponent<AgentController>();
+            if (agent != null)
+            {
+                agent.target = offices[Random.Range(0, offices.Count)].transform;
+            }
+        }
+        catch { }
     }
 
     void GenerateFloor()
@@ -65,8 +74,36 @@ public class OfficeGenerator : MonoBehaviour
             officesLeft--;
         }
 
+        while (requiredRooms.Count > 0)
+        {
+            GenerateUniqueRoom(requiredRooms[0]);
+            requiredRooms.RemoveAt(0);
+        }
+
+        while (hallwayItems.Count > 0)
+        {
+            GenerateHallwayItem(hallwayItems[0]);
+            hallwayItems.RemoveAt(0);
+        }
+
         shufflingRooms = true;
 
+    }
+
+    private void GenerateUniqueRoom(GameObject gameObject)
+    {
+        OfficeController office = Instantiate(gameObject).GetComponentInChildren<OfficeController>();
+        office.placementOrder = importance;
+        offices.Add(office.gameObject);
+        office.hallways = hallways;
+        office.PlaceRandomly();
+    }
+
+    private void GenerateHallwayItem(GameObject gameObject)
+    {
+        GameObject hallway = hallways[Random.Range(0, hallways.Count)];
+        GameObject decal = (GameObject)Instantiate(gameObject, hallway.transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
+        decals.Add(decal);
     }
 
     void LateUpdate()
