@@ -103,7 +103,7 @@ public class OfficeGenerator : MonoBehaviour
     private void GenerateHallwayItem(GameObject gameObject)
     {
         GameObject hallway = hallways[Random.Range(0, hallways.Count)];
-        GameObject decal = (GameObject)Instantiate(gameObject, hallway.transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
+        GameObject decal = (GameObject)Instantiate(gameObject, hallway.transform.position + new Vector3(.2f,0.01f,.2f), Quaternion.Euler(new Vector3(90, 0, 0)));
         decals.Add(decal);
     }
 

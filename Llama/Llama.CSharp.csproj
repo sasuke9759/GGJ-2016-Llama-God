@@ -55,12 +55,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -71,13 +65,17 @@
     <Compile Include="Assets\GameAssets\Scripts\FiniteStateMachine.cs" />
     <Compile Include="Assets\GameAssets\Scripts\HallwayController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\JobManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\LockRotation.cs" />
     <Compile Include="Assets\GameAssets\Scripts\OfficeController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\OfficeGenerator.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\RandomRotation.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\SpritePicker.cs" />
     <Compile Include="Assets\PlayerController\InteractiveObjects.cs" />
     <Compile Include="Assets\PlayerController\PlayerAssets\CharController.cs" />
     <Compile Include="Assets\PlayerController\PlayerAssets\TriggerChooser.cs" />
     <Compile Include="Assets\PlayerController\murderAnim.cs" />
     <Compile Include="Assets\Prefabs\UserInterface\Scripts\TaskManager.cs" />
+    <Compile Include="Assets\SpritePicker.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
