@@ -10,6 +10,10 @@ public class AgentController : MonoBehaviour {
 
 	public GameObject player;
 
+	public bool murdered = false;
+
+	public GameObject deadBody;
+
 	void Start()
 	{
 		player = GameObject.Find("Player");
@@ -18,11 +22,28 @@ public class AgentController : MonoBehaviour {
 	void Update () {
         agent.destination = target.position;
 
-		if (GetComponentInChildren<InteractiveObjects>() != null && GetComponentInChildren<InteractiveObjects>().activated == true)
+		if (GetComponentInChildren<InteractiveObjects>() != null && GetComponentInChildren<InteractiveObjects>().activated == true && murdered == false)
 
 		{
 			player.GetComponent<murderAnim>().setMurdering();
-			GetComponentInChildren<InteractiveObjects>().SetInactive();
+
+			agent.destination = agent.transform.position;
+
+			agent.enabled = false;
+
+			murdered = true;
+
+
+
+		}
+
+		if (player.GetComponent<murderAnim>().murdering == false && murdered == true)
+		{
+
+			Instantiate(deadBody, this.transform.position, Quaternion.identity);
+
+			Destroy(this);
+
 		}
 	}
 }

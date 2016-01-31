@@ -3,7 +3,7 @@ using System.Collections;
 
 public class murderAnim : MonoBehaviour {
 
-	private bool murdering = false;
+	public bool murdering = false;
 
 	public Animator charAnim;
 
@@ -14,17 +14,18 @@ public class murderAnim : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		charAnim.SetBool("murdering", murdering);
+
 	}
 
 	public void setNotMurdering()
 	{
 		murdering = false;
-
+		charAnim.SetBool("murdering", murdering);
 	}
 
 	public void setMurdering()
 	{
 		murdering = true;
+		charAnim.SetBool("murdering", murdering);
 	}
 }
