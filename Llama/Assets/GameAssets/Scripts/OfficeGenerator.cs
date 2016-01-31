@@ -36,6 +36,7 @@ public class OfficeGenerator : MonoBehaviour
         hallways = new List<GameObject>();
         offices = new List<GameObject>();
         decals = new List<GameObject>();
+        elevator = gameObject;
         GenerateFloor();
 
         InvokeRepeating("ShuffleWorker", .2f, .2f);
@@ -169,11 +170,6 @@ public class OfficeGenerator : MonoBehaviour
         office.PlaceRandomly();
     }
 
-    private void GenerateElevator()
-    {
-        GameObject elevator = Instantiate(elevatorPrefab);
-    }
-
     private void RemoveDuplicateHallways()
     {
         for (int i = hallways.Count - 1; i >= 0; i--)
@@ -183,6 +179,10 @@ public class OfficeGenerator : MonoBehaviour
                 if (i != j)
                 {
                     if (hallways[i].transform.position == hallways[j].transform.position && hallways[j].activeSelf)
+                    {
+                        hallways[i].SetActive(false);
+                    }
+                    if (hallways[i].transform.position == elevator.transform.position)
                     {
                         hallways[i].SetActive(false);
                     }
