@@ -20,4 +20,12 @@ public class HallwayController : MonoBehaviour {
             }
         }
 	}
+    
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.name.Equals("Elevator"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

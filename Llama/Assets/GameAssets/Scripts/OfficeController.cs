@@ -22,7 +22,7 @@ public class OfficeController : MonoBehaviour
         happyWithCurrentSpot = true;
     }
 
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerStay(Collider collision)
     {
         //Debug.Log("Collide");
         if (collision.gameObject.tag == "hallway")

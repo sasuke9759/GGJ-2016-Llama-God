@@ -55,12 +55,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -68,10 +62,13 @@
   <ItemGroup>
     <Compile Include="Assets\GUI\GUI Button Script.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AgentController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\AgentFindDeadBodies.cs" />
     <Compile Include="Assets\GameAssets\Scripts\FiniteStateMachine.cs" />
     <Compile Include="Assets\GameAssets\Scripts\HallwayController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\JobManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\LockRotation.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MinigameActivator.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MinigameSelector.cs" />
     <Compile Include="Assets\GameAssets\Scripts\OfficeController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\OfficeGenerator.cs" />
     <Compile Include="Assets\GameAssets\Scripts\RandomRotation.cs" />

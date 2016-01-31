@@ -8,18 +8,40 @@ public class AgentController : MonoBehaviour {
     [SerializeField]
     NavMeshAgent agent;
 
+    GameObject elevator;
+
 	public GameObject player;
 
 	public bool murdered = false;
+
+    public enum AgentState
+    {
+        Roam, Panic
+    };
+
+    public AgentState state = AgentState.Roam;
 
 	public GameObject deadBody;
 
 	void Start()
 	{
 		player = GameObject.Find("Player");
+        elevator = GameObject.Find("Elevator");
 	}
 	// Update is called once per frame
 	void Update () {
+        if (state == AgentState.Panic)
+        {
+            if (target != elevator)
+            {
+                target = elevator.transform;
+            }
+            if ((target.position - transform.position).magnitude <= 0.1f)
+            {
+                Destroy(gameObject);
+            }
+        }
+
         agent.destination = target.position;
 
 		if (GetComponentInChildren<InteractiveObjects>() != null && GetComponentInChildren<InteractiveObjects>().activated == true && murdered == false)
@@ -32,9 +54,6 @@ public class AgentController : MonoBehaviour {
 			agent.enabled = false;
 
 			murdered = true;
-
-
-
 		}
 
 		if (player.GetComponent<murderAnim>().murdering == false && murdered == true)
@@ -48,9 +67,6 @@ public class AgentController : MonoBehaviour {
 			transform.GetChild(0).GetComponent<Collider>().enabled = false;
 
             gameObject.SetActive(false);
-
-
-
 		}
 	}
 }

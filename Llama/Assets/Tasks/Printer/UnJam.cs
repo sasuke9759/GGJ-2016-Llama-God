@@ -7,13 +7,15 @@ public class UnJam : MonoBehaviour
 	public Image image;
 	bool isDown = false;
 	float amount = 0.01f;
+    GameObject Player;
 
     public float negativeProgress, positiveProgress;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		image.fillAmount = 0.0f;
+        Player = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame
@@ -23,13 +25,15 @@ public class UnJam : MonoBehaviour
 		{
 			//Move the icon up
 			float pushBack = Random.Range(negativeProgress, positiveProgress);
-			float result = Mathf.Clamp((amount + pushBack), 0.0f, 1.0f); 
+			float result = Mathf.Clamp((amount + pushBack), -1f, 1.0f); 
 			image.fillAmount += result;
 			isDown = true;
 			if (image.fillAmount == 1.0f) 
 			{
-				//Stop and destroy this object
-				this.gameObject.SetActive(!isDown);
+                //Stop and destroy this object
+                Player.GetComponent<CharController>().enabled = true;
+                Player.transform.FindChild("Trigger").gameObject.SetActive(true);
+                this.gameObject.SetActive(!isDown);
 			}
 		} 
 		else 

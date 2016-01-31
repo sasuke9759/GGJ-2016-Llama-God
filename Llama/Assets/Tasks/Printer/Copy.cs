@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Copy : MonoBehaviour 
 {
+    GameObject Player;
 	int numberOfCopiesGoal = 0;
 	int numberOfCurrentCopies = 0;
 	public AudioClip audioClip;
@@ -12,6 +13,7 @@ public class Copy : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+        Player = GameObject.Find("Player");
 		numberOfCopiesGoal = Random.Range (3, 10);
 		audioSource.clip = audioClip;
 		StartCoroutine ("StartCopy");

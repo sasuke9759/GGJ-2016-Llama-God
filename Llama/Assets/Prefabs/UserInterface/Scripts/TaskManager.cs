@@ -37,6 +37,7 @@ public class TaskManager : MonoBehaviour {
 	public int numberOfTasks = 0;
 	public GameObject prefabTaskText;
     public GameObject taskSheet;
+    public Animator animator;
 
     float speed = 0.3f;
 
@@ -63,23 +64,23 @@ public class TaskManager : MonoBehaviour {
 		    tasks.Add (task);
 
 			//Create GUI to show tasks
-			prefabTaskText.GetComponent<Text>().text = task.taskName;
+			prefabTaskText.GetComponentInChildren<Text>().text = task.taskName;
 			var clone = Instantiate(prefabTaskText,Vector3.zero, Quaternion.identity) as GameObject;
 			clone.transform.SetParent(this.gameObject.transform);
-			clone.GetComponent<RectTransform>().anchoredPosition = new Vector3 (0, 50 - (i * 30), 0);
+			//clone.GetComponent<RectTransform>().anchoredPosition = new Vector3 (0, 50 - (i * 30), 0);
 		}
 	}
 
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, currentPos, speed);
+        //transform.position = Vector3.Lerp(transform.position, currentPos, speed);
 
         if (Input.GetButton("Menu"))
         {
-                currentPos = endingPos;
+            animator.SetBool("Open", true);
         }
          else{
-                currentPos = startingPos;
+            animator.SetBool("Open", false);
         }
     }
 }

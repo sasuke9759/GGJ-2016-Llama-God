@@ -4,6 +4,7 @@ using System.Collections;
 
 public class EMail : MonoBehaviour {
 
+    GameObject Player;
     string emailText;
     public AudioSource audioSource;
     public AudioClip audioClip;
@@ -11,6 +12,11 @@ public class EMail : MonoBehaviour {
     public string input;
     InputField emailBody;
     public GameObject emailWindow;
+    
+    void Start()
+    {
+        Player = GameObject.Find("Player");
+    }
 
     public void SubmitEmail()
     {
@@ -26,6 +32,8 @@ public class EMail : MonoBehaviour {
             Debug.Log("OK");
         }
 
+        Player.GetComponent<CharController>().enabled = true;
+        Player.transform.FindChild("Trigger").gameObject.SetActive(true);
         emailWindow.SetActive(false);
     }
 

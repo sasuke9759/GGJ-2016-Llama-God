@@ -11,6 +11,8 @@ public class Fax : MonoBehaviour
     InputField faxNumber;
     public GameObject faxWindow;
 
+    GameObject Player;
+
     public void SendFax()
     {
         faxNumber = gameObject.GetComponent<InputField>();
@@ -25,6 +27,8 @@ public class Fax : MonoBehaviour
             Debug.Log("NOT");
         }
 
+        Player.GetComponent<CharController>().enabled = true;
+        Player.transform.FindChild("Trigger").gameObject.SetActive(true);
         faxWindow.SetActive(false);
     }
 
@@ -35,8 +39,9 @@ public class Fax : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start () 
+    void Start() 
 	{
+        Player = GameObject.Find("Player");
 		//audioSource.clip = audioClip;
 	}
 

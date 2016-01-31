@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class TriggerChooser : MonoBehaviour {
 
-	private List<GameObject> objectList = new List<GameObject>();
+    [SerializeField]
+	List<GameObject> objectList = new List<GameObject>();
 
 	public GameObject selectedObject;
 
@@ -22,7 +23,10 @@ public class TriggerChooser : MonoBehaviour {
 
 		for (int i = 0; i < objectList.Count; i++)
 		{
-			
+			if (objectList[i] == null)
+            {
+                objectList.Remove(objectList[i]);
+            }
 			if(Vector3.Distance(transform.position, objectList[i].transform.position) < newdist)
 			{
 

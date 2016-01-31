@@ -118,6 +118,7 @@ public class OfficeGenerator : MonoBehaviour
                     return;
                 }
             }
+            shufflingRooms = false;
             foreach (GameObject hallway in hallways)
             {
                 hallway.GetComponent<HallwayController>().GenerateWalls();
@@ -126,7 +127,7 @@ public class OfficeGenerator : MonoBehaviour
             {
                 office.GetComponent<OfficeController>().GenerateAgent();
             }
-                madeWalls = true;
+            madeWalls = true;
         }
     }
 
@@ -157,6 +158,18 @@ public class OfficeGenerator : MonoBehaviour
                 hallways.Add(currentHallway);
             }
             hallwayEndNodes.Add(currentHallway);
+        }
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.name.Contains("Hallway"))
+        {
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag.Equals("room"))
+        {
+            other.gameObject.GetComponent<OfficeController>().PlaceRandomly();
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class QuickTimeEvents : MonoBehaviour 
 {
+    GameObject Player;
 	public Image progress;
 	public Text pressButtonNow;
 	public float seconds = 0;
@@ -13,6 +14,7 @@ public class QuickTimeEvents : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+        Player = GameObject.Find("Player");
 		progress.fillAmount = 0;
 		pressButtonNow.gameObject.SetActive (false);
 		StartCoroutine ("StartQuickTime");
@@ -27,7 +29,10 @@ public class QuickTimeEvents : MonoBehaviour
 			yield return StartCoroutine("FireQuickTimeEvent");
 		} while(progress.fillAmount < 1.0f);
 
-		gameObject.SetActive (false);
+        Player.GetComponent<CharController>().enabled = true;
+        Player.transform.FindChild("Trigger").gameObject.SetActive(true);
+
+        gameObject.SetActive (false);
 	}
 
 	IEnumerator FireQuickTimeEvent()
