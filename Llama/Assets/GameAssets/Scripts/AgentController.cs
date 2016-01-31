@@ -7,9 +7,22 @@ public class AgentController : MonoBehaviour {
     public Transform target;
     [SerializeField]
     NavMeshAgent agent;
-	
+
+	public GameObject player;
+
+	void Start()
+	{
+		player = GameObject.Find("Player");
+	}
 	// Update is called once per frame
 	void Update () {
         agent.destination = target.position;
+
+		if (GetComponentInChildren<InteractiveObjects>().activated == true)
+
+		{
+			player.GetComponent<murderAnim>().setMurdering();
+			GetComponentInChildren<InteractiveObjects>().SetInactive();
+		}
 	}
 }

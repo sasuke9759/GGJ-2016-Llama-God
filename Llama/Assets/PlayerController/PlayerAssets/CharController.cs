@@ -34,43 +34,45 @@ public class CharController : MonoBehaviour {
 		{
 			directionpressed = "left";
 
+			charAnim.SetBool("up", false);
+			charAnim.SetBool("down", false);
+			charAnim.SetBool("right", false);
+		}
 
-		}
-		else{
-			charAnim.SetBool("left", false);
-		}
 
 
 		if (Input.GetAxis("Horizontal") > 0)
 		{
 			directionpressed = "right";
 
+			charAnim.SetBool("up", false);
+			charAnim.SetBool("down", false);
+			charAnim.SetBool("left", false);
 		}
-		else{
-			charAnim.SetBool("right", false);
-		}
+
 
 
 		if (Input.GetAxis("Vertical") > 0)
 		{
 			directionpressed = "up";
 
+			charAnim.SetBool("down", false);
+			charAnim.SetBool("left", false);
+			charAnim.SetBool("right", false);
 
 		}
-		else{
-			charAnim.SetBool("up", false);
-		}
+
 
 
 		if (Input.GetAxis("Vertical") < 0)
 		{
 			directionpressed = "down";
 
+			charAnim.SetBool("up", false);
+			charAnim.SetBool("left", false);
+			charAnim.SetBool("right", false);
+		}
 
-		}
-		else{
-			charAnim.SetBool("down", false);
-		}
 
 
 		if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)

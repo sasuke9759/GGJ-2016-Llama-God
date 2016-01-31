@@ -6,7 +6,7 @@ public class TriggerChooser : MonoBehaviour {
 
 	private List<GameObject> objectList = new List<GameObject>();
 
-	static public GameObject selectedObject;
+	public GameObject selectedObject;
 
 	private float newdist = 1000;
 

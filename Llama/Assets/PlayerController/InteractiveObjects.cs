@@ -18,8 +18,11 @@ public class InteractiveObjects : MonoBehaviour {
 
 	public void SetActive()
 	{
-		activated = true;
-		print (name + " Activated");
+		if (activated != true){
+			activated = true;
+			print (name + " Activated");
+
+		}
 	}
 
 	public void SetInactive()
