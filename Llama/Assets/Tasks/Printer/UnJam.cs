@@ -8,6 +8,8 @@ public class UnJam : MonoBehaviour
 	bool isDown = false;
 	float amount = 0.01f;
 
+    public float negativeProgress, positiveProgress;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -20,7 +22,7 @@ public class UnJam : MonoBehaviour
 		if (Input.GetButtonDown ("Interact") && !isDown) 
 		{
 			//Move the icon up
-			float pushBack = Random.Range(-0.3f, 0.2f);
+			float pushBack = Random.Range(negativeProgress, positiveProgress);
 			float result = Mathf.Clamp((amount + pushBack), 0.0f, 1.0f); 
 			image.fillAmount += result;
 			isDown = true;

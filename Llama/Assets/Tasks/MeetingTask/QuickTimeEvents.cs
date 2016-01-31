@@ -47,7 +47,7 @@ public class QuickTimeEvents : MonoBehaviour
 		{
 			if (pressButtonNow.IsActive ()) 
 			{
-				progress.fillAmount += 0.03f;
+				progress.fillAmount += 0.25f;
 				Debug.LogWarning ("Adding");
 			} 
 			else 
