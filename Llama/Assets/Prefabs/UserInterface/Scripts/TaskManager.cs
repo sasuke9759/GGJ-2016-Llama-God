@@ -14,7 +14,6 @@ public class TaskManager : MonoBehaviour
     public static int numberOfCoWorkers = 0;
 
     public static List<string> taskStrings = new List<string>() {
-        "Copies to Makes: " + numberOfCopies,
         "Send Fax to Corporate",
         "Un-Jam the Printer",
         "E-mail your Co-Worker",
@@ -24,7 +23,7 @@ public class TaskManager : MonoBehaviour
 
     public static List<string> taskTitles = new List<string>()
     {
-        "Copy", "Fax", "Unjam", "Email", "Meeting"
+        "Fax", "Unjam", "Email", "Meeting"
     };
 
     public class Task

@@ -11,12 +11,13 @@ public class Sacrifice : MonoBehaviour {
     [SerializeField]
     GameObject SacrificeWindow;
     KillController killCounter;
-    GameObject SacrificeCircle;
+    public GameObject SacrificeCircle;
 
     void Start()
     {
         playerChooser = GameObject.Find("Player").transform.FindChild("Trigger").GetComponent<TriggerChooser>();
-        SacrificeCircle = GameObject.Find("SATAN")
+        SacrificeCircle = GameObject.Find("Player").GetComponent<CharController>().SATAN;
+        SacrificeCircle.SetActive(true);
         killCounter = GameObject.Find("KillCounter").GetComponent<KillController>();
     }
 
@@ -28,10 +29,13 @@ public class Sacrifice : MonoBehaviour {
             SacrificeWindow.SetActive(false);
             playerChooser.gameObject.SetActive(true);
             playerChooser.transform.parent.GetComponent<CharController>().enabled = true;
-            playerChooser.transform.parent.FindChild("SATAN").gameObject.SetActive(false);
+            SacrificeCircle.SetActive(false);
             playerChooser.selectedObject.transform.parent.parent.gameObject.SetActive(false);
             killCounter.killCount++;
         }
-        else if ()
+        else if (!SacrificeCircle.activeSelf)
+        {
+            SacrificeCircle.SetActive(true);
+        }
 	}
 }

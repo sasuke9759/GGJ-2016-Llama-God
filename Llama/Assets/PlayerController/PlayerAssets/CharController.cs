@@ -12,6 +12,8 @@ public class CharController : MonoBehaviour {
 	public Animator charAnim;
 	public GameObject player;
 
+    public GameObject SATAN;
+
 	// walking speed
 
 	public float walkingspeed;
