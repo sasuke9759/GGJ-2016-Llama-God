@@ -47,7 +47,7 @@ public class AgentController : MonoBehaviour {
 			GetComponent<Collider>().enabled = false;
 			transform.GetChild(0).GetComponent<Collider>().enabled = false;
 
-			this.enabled = false;
+            gameObject.SetActive(false);
 
 
 

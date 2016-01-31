@@ -9,16 +9,6 @@ public class murderAnim : MonoBehaviour {
 
 	public ParticleSystem blood;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
 	public void setNotMurdering()
 	{
 		murdering = false;
