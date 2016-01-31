@@ -18,7 +18,7 @@ public class AgentController : MonoBehaviour {
 	void Update () {
         agent.destination = target.position;
 
-		if (GetComponentInChildren<InteractiveObjects>().activated == true)
+		if (GetComponentInChildren<InteractiveObjects>().activated == true && GetComponentInChildren<InteractiveObjects>() != null)
 
 		{
 			player.GetComponent<murderAnim>().setMurdering();
